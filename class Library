@@ -1,0 +1,46 @@
+class Library:
+
+    def __init__(self, book, author):
+        self.book = book
+        self.author = author
+        self.available = True
+
+    def check_out(self):
+        if self.available == True:
+            self.available = False
+            print(self.book, "checked out")
+        else:
+            print(self.book, "is already issued")
+
+    def return_book(self):
+        if self.available == False:
+            self.available = True
+            print(self.book, "returned")
+        else:
+            print(self.book, "was not issued")
+
+    def display_book(self):
+        if self.available:
+            status = "Available"
+        else:
+            status = "Not Available"
+
+        print("Book:", self.book)
+        print("Author:", self.author)
+        print("Status:", status)
+        print("-------------------")
+
+
+# Main program
+b1 = Library("Python Programming", "Guido van Rossum")
+b2 = Library("C++ Basics", "Bjarne Stroustrup")
+
+b1.display_book()
+b2.display_book()
+
+b1.check_out()
+
+b1.display_book()
+
+b1.return_book()
+b1.display_book()
