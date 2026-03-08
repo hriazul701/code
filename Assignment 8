@@ -1,0 +1,29 @@
+# Base class
+class Vehicle:
+
+    def move(self):
+        print("Vehicle is moving")
+
+
+# Subclass Car
+class Car(Vehicle):
+
+    def move(self):
+        print("Car is moving on road")
+
+
+# Subclass Bicycle
+class Bicycle(Vehicle):
+
+    def move(self):
+        print("Bicycle is moving by pedaling")
+
+
+# Polymorphism example
+v1 = Car()
+v2 = Bicycle()
+
+vehicles = [v1, v2]
+
+for v in vehicles:
+    v.move()
