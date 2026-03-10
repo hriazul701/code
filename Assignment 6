@@ -1,46 +1,44 @@
 class Library:
-
-    def __init__(self, book, author):
-        self.book = book
+    def __init__(self, book_name, author):
+        self.book_name = book_name
         self.author = author
-        self.available = True
+        self.is_available = True
 
     def check_out(self):
-        if self.available == True:
-            self.available = False
-            print(self.book, "checked out")
+        if self.is_available:
+            self.is_available = False
+            print(f"'{self.book_name}' has been checked out.")
         else:
-            print(self.book, "is already issued")
+            print(f"Sorry, '{self.book_name}' is already checked out.")
 
     def return_book(self):
-        if self.available == False:
-            self.available = True
-            print(self.book, "returned")
+        if not self.is_available:
+            self.is_available = True
+            print(f"'{self.book_name}' has been returned.")
         else:
-            print(self.book, "was not issued")
+            print(f"'{self.book_name}' was not checked out.")
 
     def display_book(self):
-        if self.available:
-            status = "Available"
-        else:
-            status = "Not Available"
-
-        print("Book:", self.book)
-        print("Author:", self.author)
-        print("Status:", status)
-        print("-------------------")
+        status = "Available" if self.is_available else "Not Available"
+        print(f"Book Name: {self.book_name}")
+        print(f"Author: {self.author}")
+        print(f"Status: {status}")
+        print("-" * 30)
 
 
-# Main program
-b1 = Library("Python Programming", "Guido van Rossum")
-b2 = Library("C++ Basics", "Bjarne Stroustrup")
+# -------- Main Program --------
+book1 = Library("Python Programming", "Guido van Rossum")
+book2 = Library("C++ Basics", "Bjarne Stroustrup")
 
-b1.display_book()
-b2.display_book()
+# Display books
+book1.display_book()
+book2.display_book()
 
-b1.check_out()
+# Check out a book
+book1.check_out()
 
-b1.display_book()
+book1.display_book()
 
-b1.return_book()
-b1.display_book()
+# Return the book
+book1.return_book()
+book1.display_book()
